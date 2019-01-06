@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9E-ke-Ctb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeJ-SY-AaF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeJ-SY-AaF">
                                         <rect key="frame" x="85.5" y="158.5" width="204.5" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="42"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -31,6 +31,9 @@
                                         <rect key="frame" x="283" y="275" width="64" height="64"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="setting_64_black"/>
+                                        <connections>
+                                            <action selector="didTouchedSettingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4af-sJ-Zal"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,6 +51,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="didTouchedPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUB-0n-Ilb"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7yo-I7-r0K">
                                         <rect key="frame" x="0.0" y="150" width="375" height="150"/>
@@ -56,11 +62,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
                                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="pause"/>
+                                                <connections>
+                                                    <action selector="didTouchedPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aP2-6e-gOR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj8-73-YxU">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
                                                 <color key="backgroundColor" red="0.87766368610000001" green="0.88752833549999999" blue="0.32906487820000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="reset_128_white"/>
+                                                <connections>
+                                                    <action selector="didTouchedResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O6W-p2-JSb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -82,6 +94,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="CountLabel" destination="PeJ-SY-AaF" id="bCl-4y-i7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
