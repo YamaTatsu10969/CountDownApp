@@ -14,7 +14,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CountDownApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -33,6 +33,7 @@
                                         <state key="normal" image="setting_64_black"/>
                                         <connections>
                                             <action selector="didTouchedSettingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4af-sJ-Zal"/>
+                                            <segue destination="qB2-yz-7Kd" kind="presentation" id="Q1E-L2-32H"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -82,7 +83,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PM9-C5-tqm" secondAttribute="trailing" id="BSv-wI-J7y"/>
                             <constraint firstItem="f9E-ke-Ctb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Eu0-vg-OUr"/>
@@ -96,10 +97,56 @@
                     </view>
                     <connections>
                         <outlet property="CountLabel" destination="PeJ-SY-AaF" id="bCl-4y-i7d"/>
+                        <outlet property="pauseButton" destination="P3s-4D-SS3" id="mdK-TK-xJX"/>
+                        <outlet property="playButton" destination="Dxt-VS-oXw" id="MHi-p1-cbL"/>
+                        <outlet property="resetButton" destination="Aj8-73-YxU" id="1bN-PF-Sos"/>
+                        <outlet property="setButton" destination="k1b-Y8-LgB" id="FFu-NJ-i02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="146" y="27"/>
+        </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="B47-1V-XvX">
+            <objects>
+                <viewController id="qB2-yz-7Kd" customClass="PopUpViewController" customModule="CountDownApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wvn-WT-v5n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Max Number is 99.9999" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-jB-CPF">
+                                <rect key="frame" x="99" y="318.5" width="177.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXP-Tc-Vvr">
+                                <rect key="frame" x="155.5" y="368.5" width="64" height="64"/>
+                                <state key="normal" image="setting_64_black"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" identifier="setCountNumber" popoverAnchorView="OXP-Tc-Vvr" id="Vtc-gw-GrR">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hKm-jB-CPF" firstAttribute="centerX" secondItem="wvn-WT-v5n" secondAttribute="centerX" id="8b8-Sy-6PD"/>
+                            <constraint firstItem="hKm-jB-CPF" firstAttribute="centerY" secondItem="wvn-WT-v5n" secondAttribute="centerY" id="Oxl-rM-vKi"/>
+                            <constraint firstItem="OXP-Tc-Vvr" firstAttribute="top" secondItem="hKm-jB-CPF" secondAttribute="bottom" constant="20" id="lTZ-wa-aSy"/>
+                            <constraint firstItem="OXP-Tc-Vvr" firstAttribute="centerX" secondItem="wvn-WT-v5n" secondAttribute="centerX" id="spQ-zq-MlP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kH2-An-bSv"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputNumberText" destination="hKm-jB-CPF" id="cVw-Hu-Q0k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="329-g4-yTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1218" y="27"/>
         </scene>
     </scenes>
     <resources>
