@@ -12,6 +12,8 @@ class PopUpViewController: UIViewController {
     
     @IBOutlet weak var inputNumberText: UITextField!
     
+    var sendNumber:Double = 0.00
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +24,44 @@ class PopUpViewController: UIViewController {
         guard let identifier = segue.identifier else {
             return
         }
+        //質問：なんでこれでreturnにならないのか
+//        guard let num = self.inputNumberText.text else {
+//            return
+//        }
+        
         if identifier == "setCountNumber"{
+            
             if let num = self.inputNumberText.text {
+                convertToDouble(num: num)
+            }
+            
+            if self.sendNumber == 0.00 {
+                print("error!!!")
+                error()
+            }else{
                 let view = segue.destination as! ViewController
-                view.inputNumber = num
+                view.receivedNumber = sendNumber
             }
         }
+    }
+    
+    func error(){
+        
+    }
+    
+    func convertToDouble(num:String){
+        let convertNum = num
+        if let doubleNum = Double(convertNum){
+            self.sendNumber = doubleNum
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // 以下の条件の時は遷移させない
+        if sendNumber == 0.00 {
+            return false
+        }
+        return true
     }
     
     
