@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		671754F921E609F900E18CE2 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 671754F821E609F900E18CE2 /* alarm.mp3 */; };
+		671754FB21E60A1300E18CE2 /* 01 The Beginning.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 671754FA21E60A1300E18CE2 /* 01 The Beginning.m4a */; };
 		6727837B21E0AC29002226D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727837A21E0AC29002226D0 /* AppDelegate.swift */; };
 		6727837D21E0AC29002226D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727837C21E0AC29002226D0 /* ViewController.swift */; };
 		6727838021E0AC29002226D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6727837E21E0AC29002226D0 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		671754F821E609F900E18CE2 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		671754FA21E60A1300E18CE2 /* 01 The Beginning.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01 The Beginning.m4a"; sourceTree = "<group>"; };
 		6727837721E0AC29002226D0 /* CountDownApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountDownApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6727837A21E0AC29002226D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6727837C21E0AC29002226D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		6727836E21E0AC29002226D0 = {
 			isa = PBXGroup;
 			children = (
+				671754F821E609F900E18CE2 /* alarm.mp3 */,
+				671754FA21E60A1300E18CE2 /* 01 The Beginning.m4a */,
 				6727837921E0AC29002226D0 /* CountDownApp */,
 				6727837821E0AC29002226D0 /* Products */,
 			);
@@ -125,6 +131,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671754F921E609F900E18CE2 /* alarm.mp3 in Resources */,
+				671754FB21E60A1300E18CE2 /* 01 The Beginning.m4a in Resources */,
 				6727838521E0AC2B002226D0 /* LaunchScreen.storyboard in Resources */,
 				6727838221E0AC2B002226D0 /* Assets.xcassets in Resources */,
 				6727838021E0AC29002226D0 /* Main.storyboard in Resources */,

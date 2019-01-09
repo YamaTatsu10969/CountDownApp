@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var setButton: UIButton!
+    
+    var player: AVAudioPlayer!
     
     var count:Double = 0.00
     var timer = Foundation.Timer()
@@ -32,16 +35,6 @@ class ViewController: UIViewController {
             self.count = receivedNumber
         }
         
-//        if let num = self.inputNumber{
-//            if let doubleNum = Double(num){
-//                self.count = doubleNum
-//            }
-//        }else{
-//            //initilal setting
-//            self.CountLabel.text = "03:00:00"
-//            self.count = 180
-//        }
-        
         calcAndShowResult()
         setButtonEnabled(start: true, stop: false, reset: false, set: true)
     }
@@ -54,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTouchedSettingButton(_ sender: Any) {
-
+        
     }
     
     @IBAction func didTouchedPlayButton(_ sender: Any) {
@@ -65,9 +58,35 @@ class ViewController: UIViewController {
     @objc func update(){
         count -= 0.01
         calcAndShowResult()
+        judgeTimeOut()
+    }
+    
+    func judgeTimeOut(){
         if count < 0 {
             resetCount()
+            soundAlerm()
+            showAlarmStop()
+            setButtonEnabled(start: false, stop: false, reset: true, set: true)
         }
+    }
+    
+    func soundAlerm(){
+        audioPlayerDif()
+        player.play()
+    }
+    
+    // 音楽コントローラ AVAudioPlayerを定義(変数定義、定義実施、クリア）
+    func audioPlayerDif(){
+        // 音声ファイルのパスを定義 ファイル名, 拡張子を定義
+        let audioPath = URL(fileURLWithPath: Bundle.main.bundlePath).appendingPathComponent("01 The Beginning.m4a")
+        //ファイルが存在しない、拡張子が誤っている、などのエラーを防止するために実行テスト(try)する。
+        do{
+            //tryで、ファイルが問題なければ player変数にaudioPathを定義
+            player = try AVAudioPlayer(contentsOf: audioPath)
+        }catch{
+            print("audiPath is not exist!")
+        }
+        
     }
     
     func calcAndShowResult(){
@@ -92,6 +111,18 @@ class ViewController: UIViewController {
         setButtonEnabled(start: true, stop: false, reset: false, set: true)
         count = 0.00
         calcAndShowResult()
+        self.timer.invalidate()
+    }
+    
+    //
+    func showAlarmStop(){
+        let aleatController = UIAlertController(title: "Time's Up!", message: "Please tap STOP", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "STOP", style: .default, handler: {
+            (action: UIAlertAction!) in
+            self.player.stop()
+        })
+        aleatController.addAction(defaultAction)
+        self.present(aleatController,animated: true, completion: nil)
     }
 }
 
