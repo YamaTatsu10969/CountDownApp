@@ -54,13 +54,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTouchedSettingButton(_ sender: Any) {
-        //        guard let input = CountLabel.text else {
-        //            return
-        //        }
-        //        guard let changeDouble = Double(input) else{
-        //            return
-        //        }
-        //        self.count = changeDouble
+
     }
     
     @IBAction func didTouchedPlayButton(_ sender: Any) {
