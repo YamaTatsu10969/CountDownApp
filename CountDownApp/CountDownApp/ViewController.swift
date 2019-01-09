@@ -71,6 +71,9 @@ class ViewController: UIViewController {
     @objc func update(){
         count -= 0.01
         calcAndShowResult()
+        if count < 0 {
+            resetCount()
+        }
     }
     
     func calcAndShowResult(){
@@ -88,6 +91,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTouchedResetButton(_ sender: Any) {
+        resetCount()
+    }
+    
+    func resetCount(){
         setButtonEnabled(start: true, stop: false, reset: false, set: true)
         count = 0.00
         calcAndShowResult()
