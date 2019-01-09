@@ -22,32 +22,12 @@ class PopUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else {
-            return
-        }
-        //質問：なんでこれでreturnにならないのか
-        //        guard let num = self.inputNumberText.text else {
-        //            return
-        //        }
-        
-        if identifier == "setCountNumber"{
-            
-            
-            
-            if self.sendNumber == 0.00 {
-                print("error!!!")
-                // TODO:error()
-            }else{
-                let view = segue.destination as! ViewController
-                view.receivedNumber = sendNumber
-            }
-        }
-    }
-    
     //Todo
-    func error(){
-        
+    func showError(){
+        let aleatController = UIAlertController(title: "Error", message: "Please enter the correct number", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        aleatController.addAction(defaultAction)
+        self.present(aleatController,animated: true, completion: nil)
     }
     
     func calcSendNumber(){
@@ -74,22 +54,27 @@ class PopUpViewController: UIViewController {
     //prepareよりもこっちの方が早い
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         calcSendNumber()
-        // 以下の条件の時は遷移させない
+        // 以下の条件の時は遷移させない、入力されていない時か、無効な文字が入っている時
         if sendNumber == 0.00 {
+            showError()
             return false
         }
         return true
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        //質問：なんでこれでreturnにならないのか
+        //        guard let num = self.inputNumberText.text else {
+        //            return
+        //        }
+        
+        if identifier == "setCountNumber"{
+            let view = segue.destination as! ViewController
+            view.receivedNumber = sendNumber
+        }
+    }
     
 }
