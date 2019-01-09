@@ -10,7 +10,11 @@ import UIKit
 
 class PopUpViewController: UIViewController {
     
-    @IBOutlet weak var inputNumberText: UITextField!
+    @IBOutlet weak var inputMinuteNumberText: UITextField!
+    @IBOutlet weak var inputSecondNumberText: UITextField!
+    
+    
+    var sendNumber:Double = 0.00
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +26,59 @@ class PopUpViewController: UIViewController {
         guard let identifier = segue.identifier else {
             return
         }
+        //質問：なんでこれでreturnにならないのか
+        //        guard let num = self.inputNumberText.text else {
+        //            return
+        //        }
+        
         if identifier == "setCountNumber"{
-            if let num = self.inputNumberText.text {
+            
+            
+            
+            if self.sendNumber == 0.00 {
+                print("error!!!")
+                // TODO:error()
+            }else{
                 let view = segue.destination as! ViewController
-                view.inputNumber = num
+                view.receivedNumber = sendNumber
             }
         }
+    }
+    
+    //Todo
+    func error(){
+        
+    }
+    
+    func calcSendNumber(){
+        var tmpSecond = 0.00
+        var tmpMinute = 0.00
+        if let num = self.inputSecondNumberText.text {
+            tmpSecond = convertToDouble(inputNum: num)
+        }
+        if let num = self.inputMinuteNumberText.text {
+            tmpMinute = convertToDouble(inputNum: num)
+        }
+        sendNumber = (tmpMinute * 60) + tmpSecond
+    }
+    
+    func convertToDouble(inputNum:String)-> Double{
+        let convertNum = inputNum
+        guard let doubleNum = Double(convertNum) else{
+            //self.sendNumber = doubleNum
+            return 0.00
+        }
+        return doubleNum
+    }
+    
+    //prepareよりもこっちの方が早い
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        calcSendNumber()
+        // 以下の条件の時は遷移させない
+        if sendNumber == 0.00 {
+            return false
+        }
+        return true
     }
     
     
