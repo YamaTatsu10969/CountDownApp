@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var setButton: UIButton!
+    
+    var player: AVAudioPlayer!
     
     var count:Double = 0.00
     var timer = Foundation.Timer()
@@ -31,16 +34,6 @@ class ViewController: UIViewController {
         }else {
             self.count = receivedNumber
         }
-        
-//        if let num = self.inputNumber{
-//            if let doubleNum = Double(num){
-//                self.count = doubleNum
-//            }
-//        }else{
-//            //initilal setting
-//            self.CountLabel.text = "03:00:00"
-//            self.count = 180
-//        }
         
         calcAndShowResult()
         setButtonEnabled(start: true, stop: false, reset: false, set: true)
@@ -67,6 +60,18 @@ class ViewController: UIViewController {
         calcAndShowResult()
         if count < 0 {
             resetCount()
+            soundAlerm()
+        }
+    }
+    
+    func soundAlerm(){
+        let url = URL(fileURLWithPath: Bundle.main.bundlePath).appendingPathComponent("01 The Beginning.m4a")
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player.delegate = self
+            player.play()
+        }catch {
+            print("Failed!")
         }
     }
     
@@ -92,6 +97,7 @@ class ViewController: UIViewController {
         setButtonEnabled(start: true, stop: false, reset: false, set: true)
         count = 0.00
         calcAndShowResult()
+        self.timer.invalidate()
     }
 }
 
