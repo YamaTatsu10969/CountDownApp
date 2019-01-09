@@ -18,20 +18,29 @@ class ViewController: UIViewController {
     
     var count:Double = 0.00
     var timer = Foundation.Timer()
-    var inputNumber:String?
+    var receivedNumber = 0.00
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //This font don't shake
+        CountLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 42, weight: UIFont.Weight.black)
         
-        if let num = self.inputNumber{
-            if let doubleNum = Double(num){
-                self.count = doubleNum
-            }
-        }else{
+        if receivedNumber == 0.00 {
             //initilal setting
-            self.CountLabel.text = "03:00:00"
             self.count = 180
+        }else {
+            self.count = receivedNumber
         }
+        
+//        if let num = self.inputNumber{
+//            if let doubleNum = Double(num){
+//                self.count = doubleNum
+//            }
+//        }else{
+//            //initilal setting
+//            self.CountLabel.text = "03:00:00"
+//            self.count = 180
+//        }
         
         calcAndShowResult()
         setButtonEnabled(start: true, stop: false, reset: false, set: true)
