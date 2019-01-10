@@ -78,7 +78,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     // 音楽コントローラ AVAudioPlayerを定義(変数定義、定義実施、クリア）
     func audioPlayerDif(){
         // 音声ファイルのパスを定義 ファイル名, 拡張子を定義
-        let audioPath = URL(fileURLWithPath: Bundle.main.bundlePath).appendingPathComponent("01 The Beginning.m4a")
+        let audioPath = URL(fileURLWithPath: Bundle.main.bundlePath).appendingPathComponent("alarm.mp3")
         //ファイルが存在しない、拡張子が誤っている、などのエラーを防止するために実行テスト(try)する。
         do{
             //tryで、ファイルが問題なければ player変数にaudioPathを定義
