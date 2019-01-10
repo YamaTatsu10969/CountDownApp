@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXP-Tc-Vvr">
-                                <rect key="frame" x="155.5" y="368.5" width="64" height="64"/>
+                                <rect key="frame" x="155.5" y="232" width="64" height="64"/>
                                 <state key="normal" image="setting_64_black"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="popoverPresentation" identifier="setCountNumber" popoverAnchorView="OXP-Tc-Vvr" id="Vtc-gw-GrR">
@@ -128,7 +128,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="iG8-BU-YQy">
-                                <rect key="frame" x="66" y="306.5" width="243" height="54.5"/>
+                                <rect key="frame" x="66" y="170" width="243" height="54.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ktJ-uw-LRx">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="54.5"/>
@@ -139,7 +139,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="max 60" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNk-KP-hoe">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNk-KP-hoe">
                                                 <rect key="frame" x="0.0" y="24.5" width="100" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -159,7 +159,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="max 60" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-jB-CPF">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-jB-CPF">
                                                 <rect key="frame" x="0.0" y="24.5" width="100" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -179,9 +179,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iG8-BU-YQy" firstAttribute="centerY" secondItem="wvn-WT-v5n" secondAttribute="centerY" id="0HK-K2-MYS"/>
-                            <constraint firstItem="iG8-BU-YQy" firstAttribute="centerX" secondItem="wvn-WT-v5n" secondAttribute="centerX" id="YiE-zN-rzv"/>
+                            <constraint firstItem="iG8-BU-YQy" firstAttribute="top" secondItem="kH2-An-bSv" secondAttribute="top" constant="150" id="2mR-Rd-PNm"/>
                             <constraint firstItem="OXP-Tc-Vvr" firstAttribute="top" secondItem="iG8-BU-YQy" secondAttribute="bottom" constant="7.5" id="ZGt-kE-0Y5"/>
+                            <constraint firstItem="iG8-BU-YQy" firstAttribute="centerX" secondItem="wvn-WT-v5n" secondAttribute="centerX" id="paj-BN-Tjr"/>
                             <constraint firstItem="OXP-Tc-Vvr" firstAttribute="centerX" secondItem="wvn-WT-v5n" secondAttribute="centerX" id="spQ-zq-MlP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kH2-An-bSv"/>
