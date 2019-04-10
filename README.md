@@ -1,13 +1,13 @@
 # CountDownApp
-====
-
-Overview
-
 ## Description
 カウントダウンアプリを作成しました！
+
 aleat を出す
+
 ボタンの活性、非活性
+
 音の制御
+
 ipad , iPhoneへの端末ごとへの対応をAutolayoutを通して行いました！
 
 ## Demo
